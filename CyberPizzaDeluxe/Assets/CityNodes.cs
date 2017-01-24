@@ -20,7 +20,7 @@ public class CityNodes : MonoBehaviour {
         }
         foreach (GameObject n in nodes)
         {
-            n.transform.position = Random.insideUnitSphere * 10.0f;
+            n.transform.position = Random.insideUnitCircle * 10.0f;
             n.GetComponent<Node>().connectedNodes.Add(nodes[Random.Range(0, numberOfNodes)]);
         }
         foreach (GameObject n in nodes)

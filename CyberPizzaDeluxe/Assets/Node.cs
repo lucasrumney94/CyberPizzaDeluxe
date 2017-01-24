@@ -10,7 +10,7 @@ public class Node : MonoBehaviour
     {
         foreach (GameObject n in connectedNodes)
         {
-            Debug.DrawLine(transform.position, n.transform.position);
+            Debug.DrawLine(transform.position, n.transform.position, Color.green, 100.0f);
         }
     }
 }
