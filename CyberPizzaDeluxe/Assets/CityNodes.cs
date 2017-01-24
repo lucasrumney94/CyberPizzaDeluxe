@@ -6,8 +6,10 @@ public class CityNodes : MonoBehaviour {
 
     public GameObject node;
     public int numberOfNodes = 10;
-
     public List<GameObject> nodes = new List<GameObject>();
+
+
+    
 
 	// Use this for initialization
 	void Start ()
@@ -16,12 +18,21 @@ public class CityNodes : MonoBehaviour {
         {
             nodes.Add(Instantiate(node, transform) as GameObject);
         }
-	}
+        foreach (GameObject n in nodes)
+        {
+            n.transform.position = Random.insideUnitSphere * 10.0f;
+            n.GetComponent<Node>().connectedNodes.Add(nodes[Random.Range(0, numberOfNodes)]);
+        }
+        foreach (GameObject n in nodes)
+        {
+            n.GetComponent<Node>().drawLineToConnectedNodes();
+        }
+    }
 	
 	// Update is called once per frame
-	void Update ()
+	void LateStart ()
     {
-		
-	}
+
+    }
 }
 
